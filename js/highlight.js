@@ -14,6 +14,8 @@
 			throw new TypeError('The 2nd parameter must be an Element');
 		}
 		
+		element.className+=' highlight '+lang;
+		
 		for(var i=0,l=lang_defs.length;i<l;i++)
 		{
 			var html='';
@@ -28,7 +30,7 @@
 							'string' === lang_defs[i].replace
 								? lang_defs[i].replace
 								: '<'+lang_defs[i].replace.tag+
-									' class="'+lang+' '+lang_defs[i]['class']+'">'+
+									' class="'+lang_defs[i]['class']+'">'+
 										lang_defs[i].replace.text+
 									'</'+lang_defs[i].replace.tag+'>'
 						);
