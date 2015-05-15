@@ -6,22 +6,22 @@
 		window.highlight.css=[
 			{
 				'class':'attribute',
-                'regex':/(\[[a-z\-\_]+(?:[|*\^\$\~]?="(?:[^"]|\\")*"|'(?:[^']|\\')*')?\])/gi,
+				'match':/(\[[a-z\-\_]+(?:[|*\^\$\~]?="(?:[^"]|\\")*"|'(?:[^']|\\')*')?\])/gi,
 				'replace':window.highlight.default_replace
 			},
 			{
 				'class':'comment',
-				'regex':/(\/\*(?:[^*]|\*[^\/])*\*\/)/g,
+				'match':/(\/\*(?:[^*]|\*[^\/])*\*\/)/g,
 				'replace':window.highlight.default_replace
 			},
 			{
 				'class':'class',
-				'regex':/(\.[a-z\-\_]+)/gi,
+				'match':/(\.[a-z\-\_]+)/gi,
 				'replace':window.highlight.default_replace
 			},
 			{
 				'class':'tag',
-                'regex':/([a-z]+|\*)/g,
+				'match':/([a-z]+|\*)/g,
 				'replace':window.highlight.default_replace
 			}
 		];
