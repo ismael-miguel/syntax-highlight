@@ -3,3 +3,4 @@
 .highlight.sql .func{color:purple;}
 .highlight.sql .number{color:green;}
 .highlight.sql .name{color:brown;}
+.highlight.sql .comment{color:darkgreen;}
