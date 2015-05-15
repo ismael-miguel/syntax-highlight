@@ -14,6 +14,11 @@
 				'replace':window.highlight.default_replace
 			},
 			{
+				'class':'comment',
+				'regex':/((?:\/\/|\-\-\s|#\s)[^\r\n]*|\/\*(?:[^*]|\*[^\/])*\*\/)/g,
+				'replace':window.highlight.default_replace
+			},
+			{
 				'class':'name',
 				'regex':/(`[^`]+`)/g,
 				'replace':window.highlight.default_replace
