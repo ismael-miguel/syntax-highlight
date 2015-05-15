@@ -1,5 +1,5 @@
-.sql.keyword{color:blue;}
-.sql.string{color:red;}
-.sql.func{color:purple;}
-.sql.number{color:green;}
-.sql.name{color:brown;}
+.highlight.sql .keyword{color:blue;}
+.highlight.sql .string{color:red;}
+.highlight.sql .func{color:purple;}
+.highlight.sql .number{color:green;}
+.highlight.sql .name{color:brown;}
