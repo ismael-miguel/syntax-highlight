@@ -26,8 +26,8 @@
 				{
 					html+=element.childNodes[j].nodeValue
 						.replace(
-							lang_defs[i].regex,
-							'string' === lang_defs[i].replace
+							lang_defs[i].match,
+							'string' === typeof lang_defs[i].replace || 'function' === typeof lang_defs[i].replace
 								? lang_defs[i].replace
 								: '<'+lang_defs[i].replace.tag+
 									' class="'+lang_defs[i]['class']+'">'+
