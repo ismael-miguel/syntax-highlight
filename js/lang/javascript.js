@@ -7,7 +7,7 @@
 		window.highlight.javascript=[
 			{
 				'class':'string',
-				'regex':/("(?:[^"]|\\")*"|'(?:[^']|\\')*')(?=[\b\s\(\),])/g,
+				'regex':/("(?:[^"]|\\")*"|'(?:[^']|\\')*')(?=[\b\s\(\),:;\[\]\{\}])/g,
 				'replace':window.highlight.default_replace
 			},
 			{
