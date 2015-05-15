@@ -4,6 +4,16 @@
 
 		var lang_defs=f[lang];
 		
+		if(!lang_defs)
+		{
+			throw new TypeError('The language "'+lang+'" wasn\'t included');
+		}
+		
+		if(!(element instanceof Element ))
+		{
+			throw new TypeError('The 2nd parameter must be an Element');
+		}
+		
 		for(var i=0,l=lang_defs.length;i<l;i++)
 		{
 			var html='';
