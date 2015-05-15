@@ -1,0 +1,5 @@
+.highlight.javascript .keyword{color:blue;}
+.highlight.javascript .string{color:red;}
+.highlight.javascript .regexp{color:purple;}
+.highlight.javascript .number{color:green;}
+.highlight.javascript .comment{color:darkgreen;}
