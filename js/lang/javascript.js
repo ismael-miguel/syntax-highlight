@@ -7,27 +7,27 @@
 		window.highlight.javascript=[
 			{
 				'class':'string',
-                'regex':/("(?:[^"]|\\")*"|'(?:[^']|\\')*')(?=[\b\s\(\),:;])/g,
+				'match':/("(?:[^"]|\\")*"|'(?:[^']|\\')*')(?=[\b\s\(\),:;])/g,
 				'replace':window.highlight.default_replace
 			},
 			{
 				'class':'number',
-				'regex':/(?![a-z_\-])(\d+(?:\.\d+))(?=[\b\s\(\),:;])/g,
+				'match':/(?![a-z_\-])(\d+(?:\.\d+))(?=[\b\s\(\),:;])/g,
 				'replace':window.highlight.default_replace
 			},
 			{
 				'class':'comment',
-				'regex':/(\/\/[^\r\n]*|\/\*(?:[^*]|\*[^\/])*\*\/)/g,
+				'match':/(\/\/[^\r\n]*|\/\*(?:[^*]|\*[^\/])*\*\/)/g,
 				'replace':window.highlight.default_replace
 			},
 			{
 				'class':'regexp',
-                'regex':/(\/(?:\\\/|[^\/])+\/(?:[gim]+)?)/g,
+                'match':/(\/(?:\\\/|[^\/])+\/(?:[gim]+)?)/g,
 				'replace':window.highlight.default_replace
 			},
 			{
 				'class':'keyword',
-				'regex':/\b(do|if|in|for|let|new|try|var|case|else|enum|eval|null|this|true|void|with|await|break|catch|class|const|false|super|throw|while|yield|delete|export|import|public|return|static|switch|typeof|default|extends|finally|package|private|continue|debugger|function|arguments|interface|protected|implements|instanceof)\b/g,
+				'match':/\b(do|if|in|for|let|new|try|var|case|else|enum|eval|null|this|true|void|with|await|break|catch|class|const|false|super|throw|while|yield|delete|export|import|public|return|static|switch|typeof|default|extends|finally|package|private|continue|debugger|function|arguments|interface|protected|implements|instanceof)\b/g,
 				'replace':window.highlight.default_replace
 			}
 		];
