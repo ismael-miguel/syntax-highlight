@@ -5,13 +5,27 @@
 		window.highlight.sql=[
 			{
 				'class':'string',
-				'match':/([bn]?"(?:[^"]|[\\"]")*"|[bn]?'(?:[^']|[\\']')*')(?=[\b\s\(\),;\$]|$)/g,
+				'match':/([bn]?"(?:[^"]|[\\"]")*"|[bn]?'(?:[^']|[\\']')*')(?=[\b\s\(\),;\$#]|$)/g,
 				'replace':window.highlight.default_replace
 			},
 			{
 				'class':'comment',
-				'match':/((?:\/\/|\-\-\s|#)[^\r\n]*|\/\*(?:[^*]|\*[^\/])*\*\/)/g,
-				'replace':window.highlight.default_replace
+				'match':/((?:\/\/|\-\-\s|#)[^\r\n]*|\/\*(?:[^*]|\*[^\/])*(?:\*\/|$))/g,
+				'replace':window.highlight.default_replace,
+				'patch':function(){
+					return this.innerHTML.replace(
+							/((?:\/\/|\-\-\s|#)[^\r\n]*|\/\*(?:[^*]|\*[^\/])*(?:\*\/|$))/g,
+							'$1</span>'
+						).replace(
+							/<span class="comment">((?:#|-- )(?:.|<\/span><span class="[^"]+">([^<])<\/span>)*)([\r\n]|$)/g,
+							function(_,part1,part2,part3){
+								return '<span class="comment">'+
+									((part1||'')+(part2||'')).replace(/<\/?span(?: class="[^"]+")?>/g,'')+
+									'</span>'+
+									(part3||'');
+							}
+						);
+				}
 			},
 			{
 				/*    
@@ -20,7 +34,7 @@
 				 * we were able to make this work.    
 				 * he took over the regex and patched it all up, I did the replace string    
 				 */
-                		'match':/((?:^|\b|\(|\s|,))(?![a-z_]+)([+\-]?\d+(?:\.\d+)?(?:[eE]-?\d+)?)((?=$|\b|\s|\(|\)|,|;))/g,
+                'match':/((?:^|\b|\(|\s|,))(?![a-z_]+)([+\-]?\d+(?:\.\d+)?(?:[eE]-?\d+)?)((?=$|\b|\s|\(|\)|,|;))/g,
 				'replace':'$1<span class="number">$2</span>$3'
 			},
 			{
