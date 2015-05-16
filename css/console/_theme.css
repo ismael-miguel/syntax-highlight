@@ -1,0 +1,5 @@
+.highlight, .highlight *{
+	background:black;
+	color:white;
+	font-family:'Consolas',monospace;
+}
