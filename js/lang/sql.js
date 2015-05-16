@@ -33,6 +33,12 @@
 				'class':'func',
 				'match':/\b([a-z_][a-z_\d]*)\b(?=\()/gi,
 				'replace':window.highlight.default_replace
+			},
+			{
+				//assumes that all missing matches are table/column names
+				'class':'name',
+				'match':/\b([a-z\_][a-z_\d]*)\b/gi,
+				'replace':window.highlight.default_replace
 			}
 		];
 	}
