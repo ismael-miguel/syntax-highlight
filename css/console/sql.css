@@ -1,0 +1,6 @@
+.highlight.sql .keyword{color:teal;}
+.highlight.sql .string{color:red;}
+.highlight.sql .func{color:purple;}
+.highlight.sql .number{color:#0F0;}
+.highlight.sql .name{color:olive;}
+.highlight.sql .comment{color:darkgreen;}
