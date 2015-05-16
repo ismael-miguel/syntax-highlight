@@ -27,7 +27,8 @@
 					html+=element.childNodes[j].nodeValue
 						.replace(
 							lang_defs[i].match,
-							'string' === typeof lang_defs[i].replace || 'function' === typeof lang_defs[i].replace
+							//'string' === typeof lang_defs[i].replace || 'function' === typeof lang_defs[i].replace
+							{'string':1,'function':1}[typeof lang_defs[i].replace]
 								? lang_defs[i].replace
 								: '<'+lang_defs[i].replace.tag+
 									' class="'+lang_defs[i]['class']+'">'+
@@ -41,6 +42,15 @@
 				}
 			}
 			element.innerHTML=html;
+			
+			if('function' === typeof lang_defs[i].patch)
+			{
+				var returned=lang_defs[i].patch.call(element);
+				if('string' === typeof returned)
+				{
+					element.innerHTML=returned;
+				}
+			}
 		}
 	};
 
