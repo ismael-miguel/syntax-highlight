@@ -11,13 +11,4 @@ Allows you to easily highlight the source code of multiple languages with minima
 - PHP
   - A version for PHP will be created in the future.
 
-## Supported languages
-
-This is a list of languages that have some highlight or full highlight:
-
-- SQL (+)
-- Javascript (-)
-- PHP (-)
-- CSS (-)
-
-Legend<br> `-`: Bad or incomplete, `+`: Complete support
+Each implementation has it's own language list compatibility.
