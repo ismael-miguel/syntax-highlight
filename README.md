@@ -20,4 +20,4 @@ This is a list of languages that have some highlight or full highlight:
 - PHP (-)
 - CSS (-)
 
-Legend: `-` - Bad or incomplete, `+` Complete support
+Legend<br> `-`: Bad or incomplete, `+`: Complete support
