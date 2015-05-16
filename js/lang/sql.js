@@ -9,9 +9,14 @@
 				'replace':window.highlight.default_replace
 			},
 			{
-				'class':'number',
-				'match':/(?![a-z_]+)([+\-]?\d+(?:\.\d+)?)(?=[\b\s\(\),])/g,
-				'replace':window.highlight.default_replace
+				/*
+				 * numbers aren't that 'regular' and many edge-cases were left behind
+				 * with the help of @MLM (http://stackoverflow.com/users/796832/mlm),
+				 * we were able to make this work.
+				 * he took over the regex and patched it all up, I did the replace string
+				 */
+				'match':/((?:^|\b|\(|\s|,))(?![a-z_]+)([+\-]?\d+(?:\.\d+)?)((?=$|\b|\s|\(|\)|,|;))/g,
+				'replace':'$1<span class="number">$2</span>$3'
 			},
 			{
 				'class':'comment',
