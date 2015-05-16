@@ -5,7 +5,7 @@
 		window.highlight.sql=[
 			{
 				'class':'string',
-				'match':/([bn]?"(?:[^"]|[\\"]")*"|[bn]?'(?:[^']|[\\']')*')(?=[\b\s\(\),;\$#]|$)/g,
+				'match':/([bn]?"(?:[^"]|[\\"]")*"|[bn]?'(?:[^']|[\\']')*')(?=[\b\s\(\),;\$#\+\-\*\/]|$)/g,,
 				'replace':window.highlight.default_replace
 			},
 			{
