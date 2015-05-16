@@ -6,7 +6,7 @@
 		
 		if(!lang_defs)
 		{
-			throw new TypeError( 'The language "' + lang + '" wasn\'t included' );
+			throw new TypeError( 'The language "' + lang + '" was not yet defined' );
 		}
 		
 		if(!(element instanceof Element))
@@ -58,6 +58,6 @@
 	};
 
 	//default replace object
-	f.default_replace = {tag:'span', text:'$1'};
+	f.default_replace = {'tag': 'span', 'text': '$1'};
 
 })(Function('return this')());//just be sure that we have the real window
