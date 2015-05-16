@@ -15,7 +15,7 @@
 			},
 			{
 				'class':'comment',
-				'match':/((?:\/\/|\-\-\s|#\s)[^\r\n]*|\/\*(?:[^*]|\*[^\/])*\*\/)/g,
+				'match':/((?:\/\/|\-\-\s|#)[^\r\n]*|\/\*(?:[^*]|\*[^\/])*\*\/)/g,
 				'replace':window.highlight.default_replace
 			},
 			{
