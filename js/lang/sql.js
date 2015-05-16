@@ -16,13 +16,22 @@
 					return this.innerHTML.replace(
 							/((?:\/\/|\-\-\s|#)[^\r\n]*|\/\*(?:[^*]|\*[^\/])*(?:\*\/|$))/g,
 							'$1</span>'
-						).replace(
-							/<span class="comment">((?:#|-- )(?:.|<\/span><span class="[^"]+">([^<])<\/span>)*)([\r\n]|$)/g,
+						).replace(//matches single-line comments
+							/<span class="comment">((?:#|-- |\/\/)(?:.|<\/span><span class="[^"]+">([^<])<\/span>)*)([\r\n]|$)/g,
 							function(_,part1,part2,part3){
 								return '<span class="comment">'+
+									//cleans up all spans
 									((part1||'')+(part2||'')).replace(/<\/?span(?: class="[^"]+")?>/g,'')+
 									'</span>'+
 									(part3||'');
+							}
+						).replace(//matches multi-line comments
+							/<span class="comment">(\/\*(?:[^*]|\*[^\/])+(?:\*\/(?:<\/span>)?|$))/g,
+							function(_,part1){
+								return '<span class="comment">'+
+									//cleans up all spans
+									((part1||'')).replace(/<\/?span(?: class="[^"]+")?>/g,'')+
+									'</span>';
 							}
 						);
 				}
@@ -34,7 +43,7 @@
 				 * we were able to make this work.    
 				 * he took over the regex and patched it all up, I did the replace string    
 				 */
-                'match':/((?:^|\b|\(|\s|,))(?![a-z_]+)([+\-]?\d+(?:\.\d+)?(?:[eE]-?\d+)?)((?=$|\b|\s|\(|\)|,|;))/g,
+				'match':/((?:^|\b|\(|\s|,))(?![a-z_]+)([+\-]?\d+(?:\.\d+)?(?:[eE]-?\d+)?)((?=$|\b|\s|\(|\)|,|;))/g,
 				'replace':'$1<span class="number">$2</span>$3'
 			},
 			{
