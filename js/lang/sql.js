@@ -5,12 +5,12 @@
 		window.highlight.sql=[
 			{
 				'class':'string',
-				'match':/("(?:[^"]|\\")*"|'(?:[^']|\\')*')(?=[\b\s\(\),])/g,
+				'match':/(b?"(?:[^"]|\\")*"|b?'(?:[^']|\\')*')(?=[\b\s\(\),])/g,
 				'replace':window.highlight.default_replace
 			},
 			{
 				'class':'number',
-				'match':/(?![a-z_])([+\-]?\d+(?:\.\d+))(?=[\b\s\(\),])/g,
+				'match':/(?![a-z_])([+\-]?\d+(?:\.\d+)?)(?=[\b\s\(\),])/g,
 				'replace':window.highlight.default_replace
 			},
 			{
