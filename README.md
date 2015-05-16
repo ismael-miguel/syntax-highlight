@@ -6,7 +6,7 @@ Allows you to easily highlight the source code of multiple languages with minima
 - Javascript
   - Simply include the Javascript file, the language file and the associated files with the language.
   - Optionally, you can compile all the css files into one.
-  - Call `hughlight('lang', elem);`.
+  - Call `highlight('lang', elem);`.
   - And you are done!
 - PHP
   - A version for PHP will be created in the future.
