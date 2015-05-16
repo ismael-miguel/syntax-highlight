@@ -10,7 +10,7 @@
 			},
 			{
 				'class':'number',
-				'match':/(?![a-z_\-])(\d+(?:\.\d+))(?=[\b\s\(\),])/g,
+				'match':/(?![a-z_])([+\-]?\d+(?:\.\d+))(?=[\b\s\(\),])/g,
 				'replace':window.highlight.default_replace
 			},
 			{
