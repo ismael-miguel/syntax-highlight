@@ -3,7 +3,7 @@
 	if('function' === typeof window.highlight)
 	{
 		
-		window.highlight.css=[
+		window.highlight.langs.css=[
 			{
 				'class':'attribute',
 				'match':/(\[[a-z\-\_]+(?:[|*\^\$\~]?="(?:[^"]|\\")*"|'(?:[^']|\\')*')?\])/gi,
