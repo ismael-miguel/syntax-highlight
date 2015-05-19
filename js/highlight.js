@@ -21,17 +21,22 @@
 			throw new TypeError( 'The language "' + lang + '" was not yet defined' );
 		}
 		
-		element.className += ' highlight ' + lang;
+		//create a document fragment, to avoid reflow and increase performance
+		var fragment = document.createDocumentFragment(),
+			div = document.createElement('div');
+		
+		div.innerHTML = element.innerHTML;
+		fragment.appendChild(div);
 		
 		for(var i = 0, l = lang_defs.length; i<l; i++)
 		{
 			var html = '';
 			
-			for(var j = 0, k = element.childNodes.length; j<k; j++)
+			for(var j = 0, k = div.childNodes.length; j<k; j++)
 			{
-				if(element.childNodes[j].nodeType === 3)
+				if(div.childNodes[j].nodeType === 3)
 				{
-					html += element.childNodes[j].nodeValue
+					html += div.childNodes[j].nodeValue
 						.replace(
 							lang_defs[i].match,
 							/*shortcut to decide if the lang_defs[i].replace is one of those types
@@ -48,20 +53,29 @@
 				}
 				else
 				{
-					html += element.childNodes[j].outerHTML;
+					html += div.childNodes[j].outerHTML;
 				}
 			}
-			element.innerHTML = html;
+			
+			//refreshes the HTML, before doing anything else
+			div.innerHTML = html;
 			
 			if('function' === typeof lang_defs[i].patch)
 			{
-				var returned = lang_defs[i].patch.call( element );
+				var returned = lang_defs[i].patch.call( div );
 				if('string' === typeof returned)
 				{
-					element.innerHTML = returned;
+					div.innerHTML = returned;
 				}
 			}
 		}
+		
+		
+		//only change at the end, to avoid unnecessary reflow
+		element.className += ' highlight ' + lang;
+		element.innerHTML = div.innerHTML;
+		
+		return true;
 	};
 
 	//default replace object
