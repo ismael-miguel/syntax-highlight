@@ -2,7 +2,7 @@
 
 	if('function' === typeof window.highlight)
 	{
-		window.highlight.sql=[
+		window.highlight.langs.sql=[
 			{
 				'class':'string',
 				'match':/([bn]?"(?:[^"]|[\\"]")*"|[bn]?'(?:[^']|[\\']')*')(?=[\b\s\(\),;\$#\+\-\*\/]|$)/g,
