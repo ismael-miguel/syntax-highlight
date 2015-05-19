@@ -9,16 +9,16 @@
 				'match':/(\[[a-z\-\_]+(?:[|*\^\$\~]?="(?:[^"]|\\")*"|'(?:[^']|\\')*')?\])/gi,
 				'replace':window.highlight.default_replace
 			},
-            {
-                'class':'style',
-                'match':/(-?[a-z][a-z\-]+)(?=:)/g,
+			{
+				'class':'style',
+				'match':/(-?[a-z][a-z\-]+)(?=:)/g,
 				'replace':window.highlight.default_replace
-            },
-            {
-                'class':'value',
-                'match':/\b([^;}]+)(?=;|})/g,
+			},
+			{
+				'class':'value',
+				'match':/\b([^;}]+)(?=;|})/g,
 				'replace':window.highlight.default_replace
-            },
+			},
 			{
 				'class':'comment',
 				'match':/(\/\*(?:[^*]|\*[^\/])*\*\/)/g,
@@ -26,12 +26,12 @@
 			},
 			{
 				'class':'class',
-                'match':/\.([a-z\-\_]+)(?=\s*|{|\.)/gi,
-                'replace':'.<span class="class">$1</span>'
+				'match':/\.([a-z\-\_]+)(?=\s*|{|\.)/gi,
+				'replace':'.<span class="class">$1</span>'
 			},
 			{
 				'class':'tag',
-                'match':/([a-z]+|\*)(?=:|\s|\.|,|\[)/g,
+				'match':/([a-z]+|\*)(?=:|\s|\.|,|\[)/g,
 				'replace':window.highlight.default_replace
 			}
 		];
