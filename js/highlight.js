@@ -1,17 +1,24 @@
 (function(window){
 	
-	var f=window.highlight = function(lang, element){
-
-		var lang_defs = f[lang];
-		
-		if(!lang_defs)
-		{
-			throw new TypeError( 'The language "' + lang + '" was not yet defined' );
-		}
+	var f=window.highlight = function(element, lang){
 		
 		if(!(element instanceof Element))
 		{
 			throw new TypeError( 'The 2nd parameter must be an Element' );
+		}
+		
+		lang = lang || element.getAttribute('data-lang') || '';
+		
+		if(!lang)
+		{
+			throw new TypeError( 'Missing language definition. Set the 2nd parameter or the attribute data-lang' );
+		}
+		
+		var lang_defs = f.langs[lang];
+		
+		if(!lang_defs)
+		{
+			throw new TypeError( 'The language "' + lang + '" was not yet defined' );
 		}
 		
 		element.className += ' highlight ' + lang;
@@ -59,5 +66,8 @@
 
 	//default replace object
 	f.default_replace = {'tag': 'span', 'text': '$1'};
+	
+	//all the languages will be added here
+	f.langs = {};
 
 })(Function('return this')());//just be sure that we have the real window
