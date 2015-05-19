@@ -4,7 +4,7 @@
 	{
 		(console.warn||console.log).call(console,'The syntax highlight for Javascript is broken.');
 		
-		window.highlight.javascript=[
+		window.highlight.langs.javascript=[
 			{
 				'class':'string',
 				'match':/("(?:[^"]|\\")*"|'(?:[^']|\\')*')(?=[\b\s\(\),:;])/g,
