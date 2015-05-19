@@ -4,7 +4,7 @@
 	{
 		(console.warn||console.log).call(console,'The syntax highlight for PHP is broken.');
 		
-		window.highlight.php=[
+		window.highlight.lang.php=[
 			{
 				'match':/<<<'?((?:[a-z_][a-z_\d]*|[a-z_][a-z_\d]*))'?((?:\s|.)*)$/gi,
 				'replace':function(_, delimiter, remaining){
