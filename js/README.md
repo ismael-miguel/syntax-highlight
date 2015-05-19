@@ -4,12 +4,13 @@
 
 This is a list of languages that have some highlight or full highlight:
 
-- SQL (+)
+- SQL (++)
 - Javascript (-)
 - PHP (-)
-- CSS (*)
+- CSS (+)
 
 **Legend**:<br>
 `-`: Bad or broken<br>
-`*`: 50% or superior support<br>
-`+`: Complete support
+`*`: 50-79% support<br>
+`+`: 80-99% support<br>
+`++`: Complete support
