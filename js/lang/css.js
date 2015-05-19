@@ -5,19 +5,18 @@
 		
 		window.highlight.langs.css=[
 			{
+				'class':'string',
+				'match':/("(?:[^"]|[\\"]")*"|'(?:[^']|[\\']')*')(?=[\b\s\),;\/\]]|$)/g,
+				'replace':window.highlight.default_replace
+			},
+			{
 				'class':'attribute',
-				'match':/(\[[a-z\-\_]+(?:[|*\^\$\~]?="(?:[^"]|\\")*"|'(?:[^']|\\')*')?\])/gi,
-				'replace':window.highlight.default_replace
+				'match':/\[([a-z\-\_]+)(?=\s*(?:[\|*\^\$\~]?=|\]))/gi,
+				'replace':'[<span class="attribute">$1</span>'
 			},
 			{
-				'class':'style',
-				'match':/(-?[a-z][a-z\-]+)(?=:)/g,
-				'replace':window.highlight.default_replace
-			},
-			{
-				'class':'value',
-				'match':/\b([^;}]+)(?=;|})/g,
-				'replace':window.highlight.default_replace
+				 'match':/(-?[a-z][a-z\-]+):(?:([^;}]+)(?=;|}))?/g,
+				'replace':'<span class="style">$1</span>:<span class="value">$2</span>'
 			},
 			{
 				'class':'comment',
@@ -31,7 +30,7 @@
 			},
 			{
 				'class':'tag',
-				'match':/([a-z]+|\*)(?=:|\s|\.|,|\[)/g,
+				'match':/([a-z]+|\*)(?=[:\s\.,\[\{])/g,
 				'replace':window.highlight.default_replace
 			}
 		];
