@@ -1,13 +1,30 @@
 (function(window){
 	
 	var f=window.highlight = function(element, lang){
+        
+		if(element instanceof NodeList || element instanceof HTMLCollection)
+		{
+			for(var i = 0, l = element.length; i<l; i++)
+			{
+                try
+                {
+                    f( element[i], lang );
+                }
+                catch(e)
+                {
+                    //we want to give a chance to all the other elements
+                    (console.error || console.log).call( console, e.message );
+                }
+			}
+			return true;
+		}
 		
 		if(!(element instanceof Element))
 		{
-			throw new TypeError( 'The 2nd parameter must be an Element' );
+			throw new TypeError( 'The 1st parameter must be an Element or NodeList' );
 		}
 		
-		lang = lang || element.getAttribute('data-lang') || '';
+		lang = lang || element.getAttribute('data-lang');
 		
 		if(!lang)
 		{
