@@ -1,5 +1,5 @@
 (function(window){
-
+	'use strict';
 	if('function' === typeof window.highlight)
 	{
 		(console.warn||console.log).call(console,'The syntax highlight for PHP is broken.');
@@ -18,7 +18,7 @@
 			},
 			{
 				'class':'var',
-                'match':/(\$[a-z_][a-z\d_]*)/gi,
+				'match':/(\$[a-z_][a-z\d_]*)/gi,
 				'replace':window.highlight.default_replace
 			},
 			{
