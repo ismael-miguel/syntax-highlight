@@ -1,22 +1,25 @@
 (function(window){
 	
-	var f=window.highlight = function(element, lang){
-        
+	//fn keeps an internal reference to avoid problems with rewritting the window.highlight
+	var fn = window.highlight = function(element, lang){
+		  
 		if(element instanceof NodeList || element instanceof HTMLCollection)
 		{
-			for(var i = 0, l = element.length; i<l; i++)
+			for(var i = 0, l = element.length, results = []; i<l; i++)
 			{
-                try
-                {
-                    f( element[i], lang );
-                }
-                catch(e)
-                {
-                    //we want to give a chance to all the other elements
-                    (console.error || console.log).call( console, e.message );
-                }
+				try
+				{
+					retults[i] = fn( element[i], lang );
+				}
+				catch(e)
+				{
+					//logs the message, to give a chance to all the other elements
+					( console.error || console.log ).call( console, e.message );
+
+					retults[i] = false;
+				}
 			}
-			return true;
+			return results;
 		}
 		
 		if(!(element instanceof Element))
@@ -31,7 +34,7 @@
 			throw new TypeError( 'Missing language definition. Set the 2nd parameter or the attribute data-lang' );
 		}
 		
-		var lang_defs = f.langs[lang];
+		var lang_defs = fn.langs[lang];
 		
 		if(!lang_defs)
 		{
@@ -88,7 +91,7 @@
 		}
 		
 		
-		//only change at the end, to avoid unnecessary reflow
+		//only change at the end, to avoid unnecessary reflows
 		element.className += ' highlight ' + lang;
 		element.innerHTML = div.innerHTML;
 		
@@ -96,9 +99,9 @@
 	};
 
 	//default replace object
-	f.default_replace = {'tag': 'span', 'text': '$1'};
+	fn.default_replace = {'tag': 'span', 'text': '$1'};
 	
 	//all the languages will be added here
-	f.langs = {};
+	fn.langs = {};
 
 })(Function('return this')());//just be sure that we have the real window
