@@ -1,5 +1,7 @@
 (function(window){
-
+	
+	'use strict';
+	
 	if('function' === typeof window.highlight)
 	{
 		
@@ -23,6 +25,7 @@
 				'match':/(\/\*(?:[^*]|\*[^\/])*(?:\*\/|$))/g,
 				'replace':window.highlight.default_replace,
 				'patch':function(){
+					'use strict';
 					return this.innerHTML.replace(//matches multi-line comments
 							/<span class="comment">(\/\*(?:[^*]|\*[^\/])+(?:\*\/(?:<\/span>)?|$))/g,
 							function(_,part1){
