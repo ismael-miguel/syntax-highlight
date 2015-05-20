@@ -1,7 +1,11 @@
 (function(window){
 	
+	'use strict';
+	
 	//fn keeps an internal reference to avoid problems with rewritting the window.highlight
 	var fn = window.highlight = function(element, lang){
+		
+		'use strict';
 		  
 		if(element instanceof NodeList || element instanceof HTMLCollection)
 		{
@@ -9,14 +13,14 @@
 			{
 				try
 				{
-					retults[i] = fn( element[i], lang );
+					results[i] = fn( element[i], lang );
 				}
 				catch(e)
 				{
 					//logs the message, to give a chance to all the other elements
 					( console.error || console.log ).call( console, e.message );
 
-					retults[i] = false;
+					results[i] = false;
 				}
 			}
 			return results;
