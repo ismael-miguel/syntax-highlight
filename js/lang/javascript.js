@@ -1,5 +1,5 @@
 (function(window){
-
+	'use strict';
 	if('function' === typeof window.highlight)
 	{
 		(console.warn||console.log).call(console,'The syntax highlight for Javascript is broken.');
@@ -22,7 +22,7 @@
 			},
 			{
 				'class':'regexp',
-                'match':/(\/(?:\\\/|[^\/])+\/(?:[gim]+)?)/g,
+				'match':/(\/(?:\\\/|[^\/])+\/(?:[gim]+)?)/g,
 				'replace':window.highlight.default_replace
 			},
 			{
