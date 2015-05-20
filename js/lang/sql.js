@@ -1,5 +1,5 @@
 (function(window){
-
+	'use strict';
 	if('function' === typeof window.highlight)
 	{
 		window.highlight.langs.sql=[
@@ -13,6 +13,7 @@
 				'match':/((?:\/\/|\-\-\s|#)[^\r\n]*|\/\*(?:[^*]|\*[^\/])*(?:\*\/|$))/g,
 				'replace':window.highlight.default_replace,
 				'patch':function(){
+					'use strict';
 					return this.innerHTML.replace(
 							/((?:\/\/|\-\-\s|#)[^\r\n]*|\/\*(?:[^*]|\*[^\/])*(?:\*\/|$))/g,
 							'$1</span>'
