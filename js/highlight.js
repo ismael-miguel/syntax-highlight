@@ -49,7 +49,15 @@
 		var fragment = document.createDocumentFragment(),
 			div = document.createElement('div');
 		
-		div.innerHTML = element.innerHTML;
+		div.innerHTML = element.innerHTML
+			.replace(/[<>]/g,function(symbol){
+				return '<span>&'+
+					({
+						'<':'lt',
+						'>':'gt'
+					}[symbol])+
+					';</span>';
+			});
 		fragment.appendChild(div);
 		
 		for(var i = 0, l = lang_defs.length; i<l; i++)
