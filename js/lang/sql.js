@@ -4,6 +4,16 @@
 	{
 		window.highlight.langs.sql=[
 			{
+				'class':'operator',
+				'match': /(&[lg]t;|[<>\|=+\-]+|\b\*)/g,
+				'replace':function(op){
+					var escapes = {'<':'&lt;', '>':'&gt;'};
+					return '<span class="operator">' +
+						( escapes[op] ? escapes[op] : op ) +
+					'</span>';
+				}
+			},
+			{
 				'class':'string',
 				'match':/([bn]?"(?:[^"]|[\\"]")*"|[bn]?'(?:[^']|[\\']')*')(?=[\b\s\(\),;\$#\+\-\*\/]|$)/g,
 				'replace':window.highlight.default_replace
