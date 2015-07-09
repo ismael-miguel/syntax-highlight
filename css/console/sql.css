@@ -5,3 +5,4 @@
 .highlight.sql .name{color:olive;}
 .highlight.sql .var{color:green;}
 .highlight.sql .comment{color:gray;}
+.highlight.sql .operator{color:purple;}
